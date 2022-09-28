@@ -1,8 +1,0 @@
-package com.lec.spring.di03;
-
-public class Config03 {
-	
-	public Config03() {
-		System.out.println("Config03() 생성");
-	}
-}
