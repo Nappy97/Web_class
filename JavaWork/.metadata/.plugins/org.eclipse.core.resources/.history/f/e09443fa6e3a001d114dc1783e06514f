@@ -1,0 +1,26 @@
+package com.lec.spring.di06;
+
+import org.springframework.stereotype.Service;
+
+public interface DoService {
+
+}
+
+@Service
+class RegisterService implements DoService {
+
+	DAO dao;
+	
+	// 기본 생성자 없음
+
+	// 아래 DAO는 자동주입 받게됨.
+	public RegisterService(DAO dao) {
+		System.out.printf("RegisterService(%s) 생성\n", dao);
+		this.dao = dao;
+	}
+	
+	@Override
+	public String toString() {
+		return String.format("[RegisterService : %s]", dao);
+	}
+}

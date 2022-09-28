@@ -1,0 +1,8 @@
+package com.lec.spring.domain;
+
+public class Write {
+	
+	private String name;
+	private String subjectg;
+	private String content;
+}

@@ -1,0 +1,10 @@
+# 서버 포트번호
+server:
+  port: 8091
+  
+# View Resolver
+spring:
+  mvc:
+    view:
+      prefix: /WEB_INF/view/
+

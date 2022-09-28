@@ -1,0 +1,29 @@
+package com.lec.spring.domain;
+
+import java.time.LocalDateTime;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Entity(name ="t6_write")
+public class Write {
+
+	@Id
+	private Long id;	// 글 id
+	
+	private String subject;		// 글제목
+	private String content;		// 글 내용
+	private String name;		// 작성자
+	private int viewCnt;		// 글 조회수
+	
+	private LocalDateTime regDate;	// 글 작성일시
+}

@@ -1,0 +1,8 @@
+/*
+ * org.springframework.stereotype 이하의 annotation 이 붙은 class는
+ * 스프링 컨테이너 생성시 bean 으로 생성된다.
+ * 
+ * ex) @Component
+ */
+
+

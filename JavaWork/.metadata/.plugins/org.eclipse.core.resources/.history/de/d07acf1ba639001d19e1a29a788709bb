@@ -1,0 +1,47 @@
+package com.lec.spring.di02;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.lec.spring.beans.MessageBean;
+
+/*
+	Dependency Injection (DI, 의존주입)
+	필요한 객체는 누가 만들어 사용하나?
+	
+	방법2 : 외부에서 만들어 주입 (injection)
+		스프링 특징 의존주입 (Dependenty Injection) 사용
+		즉 '외부' 에서 만들어 놓은 것을 가져옴.
+*/
+@SpringBootApplication // 아래 객체도 스프링 컨테이너 안에 빈 객체로 생성
+public class DIMain02 implements CommandLineRunner{
+	
+	public MessageBean msg;   // 필요한 객체
+	
+	public void setMsg(MessageBean msg) {
+		this.msg = msg;
+	}
+
+	public static void main(String[] args) {
+		System.out.println("Main 시작");
+
+		
+		System.out.println("Main 종료");
+	}
+	
+
+	@Override
+	public void run(String... args) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
+
+}
+
+
+
+
+
+

@@ -1,0 +1,30 @@
+package com.lec.spring.di03;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class DIMain03 implements CommandLineRunner{
+
+	
+	public DIMain03() {
+		System.out.println("DIMain03() 생성");
+	}
+	
+	
+	public static void main(String[] args) {
+		System.out.println("Main3 시작");
+
+		SpringApplication.run(DIMain03.class, args);
+		
+		System.out.println("Main3 종료");
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+		System.out.println("run() 실행");
+		
+	}
+
+}

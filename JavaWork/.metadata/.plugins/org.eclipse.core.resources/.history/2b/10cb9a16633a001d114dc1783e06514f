@@ -1,0 +1,66 @@
+package com.lec.spring.di05;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.lec.spring.beans.MessageBean;
+import com.lec.spring.beans.Score;
+
+/*
+ * Autowired (자동주입) 는 세군데 발생
+ * - 생성자  (constructor injection)
+ * - 멤버변수 (field injection)
+ * - setter (setter injection)
+ */
+
+@SpringBootApplication
+public class DIMain05 implements CommandLineRunner {
+
+	@Autowired
+	@Qualifier("Kim")	// 컨테이너 안에서 "Kim" 이라는 name 의 Score 타입 bean 을 자동주입 
+	Score scoreA;
+	
+	@Autowired
+	@Qualifier("Park")	// 컨테이너 안에서 "Park" 이라는 name 의 Score 타입 bean	을 자동주입
+	Score scoreB;
+
+	MessageBean msg1;
+	MessageBean msg2;
+
+	@Autowired
+	@Qualifier("ENG") // "ENG" 라는 이름의 MessageBean 타입 bean 을 자동주입 받는다
+	public void setMsg1(MessageBean msg1) {
+		this.msg1 = msg1;
+	}
+
+	@Autowired
+	@Qualifier("KOR") // "KOR" 라는 이름의 MessageBean 타입 bean 을 자동주입 받는다
+	public void setMsg2(MessageBean msg2) {
+		this.msg2 = msg2;
+	}
+
+	public DIMain05() {
+		System.out.println("DIMain04() 생성");
+	}
+
+	public static void main(String[] args) {
+		System.out.println("Main5 시작");
+
+		SpringApplication.run(DIMain05.class, args);
+
+		System.out.println("Main5 종료");
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+		msg1.sayHello();
+		msg2.sayHello();
+
+		System.out.println(scoreA);
+		System.out.println(scoreB);
+	}
+
+}

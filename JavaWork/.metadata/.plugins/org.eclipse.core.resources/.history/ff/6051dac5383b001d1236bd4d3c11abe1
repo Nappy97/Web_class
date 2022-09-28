@@ -1,0 +1,20 @@
+package com.lec.spring.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/board")
+public class BoardController {
+
+	@GetMapping("/list")   // /board/list 
+//	public void list(HttpServletRequest request, Model model) { // request 객체를 통해 매개변수 받기
+//	public void list(Model model, HttpServletRequest request) { // HANDLER 의 매개변수 순서 무관!
+	public void list(int page, Model model) {   // 핸들러 매개변수의 이름과 같은 parameter 를 받아온다!
+//		String p = request.getParameter("page");
+		model.addAttribute("page", page);
+	}
+	
+}

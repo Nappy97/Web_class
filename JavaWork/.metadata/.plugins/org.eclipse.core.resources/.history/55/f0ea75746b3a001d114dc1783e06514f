@@ -1,0 +1,17 @@
+package com.lec.spring.di06;
+
+public interface DoService {
+
+}
+
+class RegisterService implements DoService {
+
+	DAO dao;
+	
+	// 기본 생성자 없음
+
+	public RegisterService(DAO dao) {
+		System.out.printf("RegisterService(%s) 생성\n", dao);
+		this.dao = dao;
+	}
+}

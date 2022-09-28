@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Kmarket 홈페이지</title>
+</head>
+<body>
+<header> 헤더입니다 <!-- A#2 --> </header>
+<div>회원가입</div><!-- B#4 -->
+<<<<<<< HEAD
+<div>about</div>	<!-- A#8 -->
+=======
+<div>관리자</div>	<!-- B#5 -->
+>>>>>>> 0462732de5e38483444ca22df5a0c1bf5c37c59b
+<article> 본문입니다 <!-- A#3 -->
+	<section>기사1</section>	<!-- A#5 -->
+	<section>기사2</section>	<!-- A#5 -->
+</article>
+<footer> 푸터입니다 <!-- A#3 -->
+</footer>
+</body>
+</html>

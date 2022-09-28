@@ -1,0 +1,21 @@
+1661149843133	Delete element
+1661149901129	Delete element
+1661151643558	Rename resource 'write.jsp'
+1661151650101	Rename resource 'writeOk.jsp'
+1661151751704	Rename resource 'register.jsp'
+1661151758153	Rename resource 'registerOk.jsp'
+1661152236448	Rename package 'service.write'
+1661152518543	Rename compilation unit 'RegisterService.java'
+1661157410357	Delete element
+1661158413233	Move 'resources' to 'views'
+1661158513491	Move 'assets' to 'views'
+1661158515057	Move 'css' to 'views'
+1661158516508	Move 'js' to 'views'
+1661158518651	Delete element
+1661158620284	Move 'list.jsp' to 'views'
+1661158636117	Move 'list.jsp' to 'board'
+1661162687049	Delete element
+1661162689213	Delete element
+1661162690822	Delete element
+1661163311777	Delete element
+1661167445689	Delete element

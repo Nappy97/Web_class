@@ -1,0 +1,11 @@
+package com.lec.spring.di04;
+
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class Config04 {
+
+	public Config04() {
+		System.out.println("Config04() 생성");
+	}
+}

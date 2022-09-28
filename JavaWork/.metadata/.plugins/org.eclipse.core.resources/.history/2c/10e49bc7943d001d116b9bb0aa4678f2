@@ -1,0 +1,7 @@
+server.port=8091
+
+# H2 db 콘솔 활성화
+spring.h2.console=true   
+
+spring.jpa.defer-datasource-initialization=true
+

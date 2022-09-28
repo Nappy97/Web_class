@@ -1,0 +1,8 @@
+INDEX VERSION 1.4+C:\DevRoot\Dropbox\Web\Git_Beta\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+228087221.index
+3458749882.index
+3531572615.index
+2829337892.index
+902278881.index
+682568739.index
+4168499328.index

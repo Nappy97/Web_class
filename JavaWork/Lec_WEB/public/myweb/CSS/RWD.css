@@ -1,0 +1,210 @@
+@charset "UTF-8";
+
+/* 모바일 380px 이하 */
+@media screen and (min-width: 360px) and (max-width: 700px) {
+    .modal-content1 {
+        width: 90%;
+    }
+
+    .modal-content2 {
+        width: 90%;
+    }
+
+    span.psw {
+        display: block;
+        float: none;
+    }
+
+    .cancelbtn {
+        width: 100%;
+    }
+
+    .canbtn, .signupbtn {
+        width: 100%;
+    }
+
+    .prev, .next, .text {
+        font-size: 11px
+    }
+
+    #num1, #num2 {
+        padding: 0;
+    }
+
+    .container2 input[name="phoneNum"] {
+        width: 32.333%;
+    }
+
+    /* <nav><ul><li><a> 스타일 지정 */
+    nav#top_menu {
+        width: 100%;
+        float: right;
+        margin: 50px 3px 0 0;
+    }
+
+    /* 전체적인 화면 재세팅*/
+    body {
+        /*background-color: black;*/
+        background-image: url(../images/shadow.png);
+    }
+
+    #wrap {
+        display: block;
+        width: 100%;
+        background-image: none;
+    }
+
+    /* 로그인 로그아웃*/
+    #login, #join {
+        font-size: 2em;
+    }
+
+    /* 로고 없애기 */
+    #logo {
+        display: none;
+    }
+
+    /* 소제목 */
+    nav * {
+        padding: none;
+        width: 99%;
+    }
+
+    .topnav {
+        float: left;
+        width: 100%;
+        position: relative;
+    }
+
+    .topnav ul li {
+        width: 100%;
+        background-color: #333;
+        margin: 0 0 0 -28px !important;
+    }
+
+    .topnav ul div#top_menus {
+        display: none;
+    }
+
+    nav#top_menu .topnav ul li a {
+        color: white;
+        padding: 14px 16px 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+        display: block;
+    }
+
+    nav#top_menu div.topnav a.icon {
+        display: block;
+        height: 28px;
+        width: 25px;
+        top: 3px;
+        right: -9px;
+
+    }
+
+    .text_banner {
+        font-weight: bold;
+        color: #333;
+        font-size: 2em;
+        margin: 10px 0 10px 10px;
+        position: relative;
+        bottom: 8px;
+        width: 100%;
+    }
+
+    th {
+        text-align: center;
+        font-size: 1.2em;
+        padding: 20px;
+    }
+
+    td {
+        text-align: center;
+        font-size: 0.9em;
+        padding: 10px;
+    }
+
+    nav#top_menu ul li {
+        float: left;
+        /* 첫번째 숫자 : 위아래 여백, 두번째 숫자 : 좌우 여백 */
+        width: 91%;
+    }
+
+    .topnav a.icon {
+        background: black;
+        display: block;
+        height: 100%;
+        margin-top: 10px;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    nav#top_menu .topnav ul li a:hover {
+        background-color: #ddd;
+        color: black;
+        background-image: none;
+    }
+
+    nav#top_menu .topnav a:hover {
+        background-image: none;
+    }
+
+    .target {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    #top_menus {
+        background-color: #333;
+        width: 110%;
+    }
+
+    /* 슬라이드 쇼 */
+    .slideshow-container {
+        width: 99%;
+        margin: 10px;
+    }
+
+    .slideshow-container div.fade img {
+        height: 200px
+    }
+
+    .slideshow-container {
+        height: 230px;
+    }
+
+    /* 이벤트 글 */
+    #main_event_banner {
+        width: 100%;
+        margin: 10px;
+    }
+
+    #ad{
+        display: none;
+    }
+
+
+    #text_banner {
+        margin: 10px;
+    }
+
+    /* 푸터 */
+    #social {
+        display: none;
+    }
+
+    #copy {
+        display: none;
+    }
+
+    footer hr {
+        width: 100%;
+        margin: 0;
+    }
+
+    footer #social img {
+        width: 100%;
+    }
+}

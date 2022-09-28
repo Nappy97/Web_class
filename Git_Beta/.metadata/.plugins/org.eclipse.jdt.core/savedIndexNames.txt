@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+C:\DevRoot\Dropbox\Web\Git_Beta\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index
+3531572615.index
+1219883360.index
