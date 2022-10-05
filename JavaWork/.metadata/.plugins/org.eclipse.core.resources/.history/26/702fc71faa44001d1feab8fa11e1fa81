@@ -1,0 +1,63 @@
+package com.lec.spring.domain;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.annotations.Fetch;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Entity(name = "t6_write")
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
+@DynamicInsert		// INSERT 시 Null 인 필드는 제외
+@DynamicUpdate		// UPDATE 시 Null 인 필드는 제외
+public class Write extends BaseEntity{
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // auto_increment
+	private Long id; // 글 id
+
+	@Column(nullable = false)
+	private String subject; // 글제목
+	
+	@Column(nullable = false)
+	private String content; // 글 내용
+	
+
+	@ColumnDefault(value = "0")
+	private int viewCnt; // 글 조회수
+
+	// Write:User = N:1
+	@ManyToOne
+	@ToString.Exclude
+	private User user;
+	
+	@OneToMany(mappedBy = "write", cascade = CascadeType.ALL)
+	@ToString.Exclude
+	@Builder.Default
+	private List<Comment> comments = new ArrayList<>();
+}

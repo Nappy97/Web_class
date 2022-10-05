@@ -1,0 +1,14 @@
+package com.lec.spring.domain;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity(name = "t6_authority")
+public class Authority {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private String id;	// PK
+}

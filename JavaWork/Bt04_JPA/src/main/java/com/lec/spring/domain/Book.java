@@ -1,6 +1,7 @@
 package com.lec.spring.domain;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -11,8 +12,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-
-import com.lec.spring.listener.Auditable;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -25,36 +24,55 @@ import lombok.ToString;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 //@EntityListeners(value = AuditingEntityListener.class)
-public class Book extends BaseEntity {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-
-	private String name;
-
-	private String category;
-	private Long authorId; // null 허용 -> Wrapper 사용
+public class Book extends BaseEntity{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+   
+    private String name;
+    
+    private String category;
+    private Long authorId;     // null 허용 -> Wrapper 사용
 //    private Long publisherId; // null 허용 -> Wrapper 사용
-
-	@OneToOne(mappedBy = "book") // 해당 Entity 의 테이블에선 연관키를 가지지 않는다
-	@ToString.Exclude // lombok 의 ToString 배제 (양방향 순환참조 때문)
-	private BookReviewInfo bookReviewInfo;
-	
-	@OneToMany
-	@JoinColumn(name = "book_id")
-	@ToString.Exclude
-	private List<Review> reviews = new ArrayList<>();
-	
-	@ManyToOne
-	@ToString.Exclude
-	private Publisher publisher;
-
+   
+    
+    @OneToOne(mappedBy = "book")  // 해당 Entity 의 테이블에선 연관키를 가지지 않는다
+    @ToString.Exclude   // lombok 의 ToString 배제 (양방향 순환참조 때문)
+    private BookReviewInfo bookReviewInfo;
+    
+    @OneToMany
+    @JoinColumn(name = "book_id")
+    @ToString.Exclude
+    private List<Review> reviews = new ArrayList<>();
+    
+    @ManyToOne
+    @ToString.Exclude
+    private Publisher publisher;
+    
+//    @ManyToMany
+//    @ToString.Exclude
+//    private List<Author> authors = new ArrayList<>();
+//    
+//    public void addAuthor(Author... authors) {
+//    	Collections.addAll(this.authors, authors);
+//    }
+    
+    @OneToMany
+    @JoinColumn(name = "book_id")
+    @ToString.Exclude
+    private List<Writing> writings = new ArrayList<>();
+    
+    public void addWritings(Writing... writings) {
+    	Collections.addAll(this.writings, writings);
+    }
+    
+    
 //    @Column(updatable = false)
 //    @CreatedDate   // AuditingEntityListener 가 Listener 로 적용시 사용
 //    private LocalDateTime createdAt;
 //    @LastModifiedDate  // AuditingEntityListener 가 Listener 로 적용시 사용s    
 //    private LocalDateTime updatedAt;
-
+   
 //    @PrePersist
 //    public void prePersist() {
 //        this.createdAt = LocalDateTime.now();
@@ -66,3 +84,4 @@ public class Book extends BaseEntity {
 //        this.updatedAt = LocalDateTime.now();
 //    }
 }
+

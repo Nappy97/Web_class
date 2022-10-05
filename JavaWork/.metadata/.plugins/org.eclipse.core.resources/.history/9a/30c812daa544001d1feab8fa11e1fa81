@@ -1,0 +1,21 @@
+package com.lec.spring.repository;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+class WriteRepositoryTest {
+
+	@Autowired
+	private UserRepository userRepository;
+	
+	@Autowired
+	private WriteRepository writeRepository;
+	
+	@Test
+	void init() {
+		System.out.println("[init]");
+	}
+
+}

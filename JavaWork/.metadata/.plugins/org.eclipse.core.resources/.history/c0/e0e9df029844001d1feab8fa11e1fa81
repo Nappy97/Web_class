@@ -1,0 +1,55 @@
+package com.lec.spring.repository;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.lec.spring.domain.Author;
+import com.lec.spring.domain.Book;
+
+@SpringBootTest
+class AuthorRepositoryTest {
+
+	@Autowired
+	private AuthorRepository authorRepository;
+	
+	@Autowired
+	private BookRepository bookRepository;
+	
+    @Test
+    void manyToManyTest() {
+        System.out.println("\n-- TEST#manyToManyTest() ---------------------------------------------");
+       
+        Book book1 = givenBook("요리책1");
+        Book book2 = givenBook("요리책2");
+        Book book3 = givenBook("개발책1");
+        Book book4 = givenBook("개발책2");
+       
+        Author author1 = givenAuthor("martin");
+        Author author2 = givenAuthor("steve");
+
+
+        
+        System.out.println("\n------------------------------------------------------------\n");
+    }
+
+    
+    // 테스트용 데이터 입력 메소드
+    private Book givenBook(String name) {
+        Book book = new Book();
+        book.setName(name);
+       
+        return bookRepository.save(book); // INSERT
+    }
+   
+    private Author givenAuthor(String name) {
+        Author author = new Author();
+        author.setName(name);
+       
+        return authorRepository.save(author); // INSERT
+    }
+
+
+}

@@ -1,0 +1,82 @@
+package com.lec.spring.repository;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.assertj.core.util.Lists;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.lec.spring.domain.Author;
+import com.lec.spring.domain.Book;
+import com.lec.spring.domain.Writing;
+
+@SpringBootTest
+class AuthorRepositoryTest {
+
+	@Autowired
+	private AuthorRepository authorRepository;
+
+	@Autowired
+	private BookRepository bookRepository;
+	
+	@Autowired
+	private WritingRepository writingRepository;
+
+	@Test
+	void manyToManyTest() {
+		System.out.println("\n-- TEST#manyToManyTest() ---------------------------------------------");
+
+		Book book1 = givenBook("요리책1");
+		Book book2 = givenBook("요리책2");
+		Book book3 = givenBook("개발책1");
+		Book book4 = givenBook("개발책2");
+
+		Author author1 = givenAuthor("martin");
+		Author author2 = givenAuthor("steve");
+
+//		book1.addAuthor(author1);
+//		book2.addAuthor(author2);
+//		book3.addAuthor(author1, author2);
+//		book4.addAuthor(author1, author2);
+//
+//		author1.addBook(book1, book3, book4); // martin 이 작성한 책들
+//		author2.addBook(book2, book3, book4); // steve 가 작성한 책들
+//
+//		// book, author 저장 -> 중간테이블에 INSERT 발생
+//		bookRepository.saveAll(Lists.newArrayList(book1, book2, book3, book4));
+//		authorRepository.saveAll(Lists.newArrayList(author1, author2));
+
+		// 세번째 책의 저자들 Book -> Author
+		System.out.println("authors through book : " + bookRepository.findAll().get(2).getAuthors());
+
+		// 첫번째 저자의 책들 Author -> Book
+		System.out.println("books through authors : " + authorRepository.findAll().get(1).getBooks());
+
+		System.out.println("\n------------------------------------------------------------\n");
+	}
+
+	// 테스트용 데이터 입력 메소드
+	private Book givenBook(String name) {
+		Book book = new Book();
+		book.setName(name);
+
+		return bookRepository.save(book); // INSERT
+	}
+
+	private Author givenAuthor(String name) {
+		Author author = new Author();
+		author.setName(name);
+
+		return authorRepository.save(author); // INSERT
+	}
+
+	private Writing givenWriting(Book book, Author author) {
+	    Writing writing = new Writing();
+	    writing.setBook(book);
+	    writing.setAuthor(author);
+	   
+	    return writingRepository.save(writing);
+	}
+
+}
