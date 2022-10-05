@@ -1,9 +1,0 @@
-server.port=8091
-
-# H2 db 콘솔 활성화
-spring.h2.console=true   
-
-# 기본적으로 data.sql 은 Hibernate 가 초기화 되기전에 수행된다.
-# Hibernate 에서 생성한뒤 data.sql 이 수행되게 하려면 아래설정을 해주어야 한다
-spring.jpa.defer-datasource-initialization=true
-

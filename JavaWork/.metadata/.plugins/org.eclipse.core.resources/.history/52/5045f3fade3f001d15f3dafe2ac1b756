@@ -1,0 +1,273 @@
+package com.lec.spring.repository;
+
+import static org.springframework.data.domain.ExampleMatcher.GenericPropertyMatchers.contains;
+
+import java.time.LocalDateTime;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
+
+import com.lec.spring.domain.User;
+
+@SpringBootTest // 스프링 context 를 로딩하여 테스트에 사용
+class UserRepositoryTest {
+
+	@Autowired
+	private UserRepository userRepository;
+
+//	@Test
+//	@Transactional  // org.springframework.transaction.annotation.Transactional
+	void crud() { // create - read - update - delete
+		System.out.println("\n-- TEST#crud() --------------------------------------");
+//		userRepository.save(new Users());   // INSERT, 저장
+
+//		System.out.println(">>> " + userRepository.findAll());  // SELECT 전체 조회
+//		userRepository.findAll().forEach(System.out::println);
+
+		// 테스트에 사용할 변수들
+		List<User> users = null;
+		User user1 = null, user2 = null, user3 = null, user4 = null, user5 = null;
+		List<Long> ids = null;
+
+		// #002 findAll()
+//        users = userRepository.findAll();
+//        users.forEach(System.out::println);
+
+		// #003 findxx() + Sort.by()
+		// name 필드의 역순 SELECT
+//        users = userRepository.findAll(Sort.by(Direction.DESC, "name"));
+//        users.forEach(System.out::println);
+
+		// #004 findxxByxx(Iterable)
+//        ids = new ArrayList<>();
+//        ids.add(1L);
+//        ids.add(3L);
+//        ids.add(5L);
+//        
+//        users = userRepository.findAllById(ids);
+//        users.forEach(System.out::println);
+
+		// org.assertj.core.util.Lists 를 사용하면 간단
+//        users = userRepository.findAllById(Lists.newArrayList(1L, 3L, 5L));
+//        users.forEach(System.out::println);
+
+		// #005 save(entity) 저장하기
+//        user1 = new Users("jack", "jack@redknight.com");
+//        userRepository.save(user1);  // INSERT!        
+//        userRepository.findAll().forEach(System.out::println);
+
+		// #006 saveAll(Iterable<entity>)
+//        user1 = new Users("jack", "jack@redknight.com");
+//        user2 = new Users("steve", "steve@redknight.com");
+//        userRepository.saveAll(Lists.newArrayList(user1, user2));
+//        userRepository.findAll().forEach(System.out::println);
+
+		// getOne() Entity 리턴 Deprecated
+		// findById() Optional<> 리턴
+		// 결과는 같은것 같으나 동작이 다릅니다.
+		// #007 getOne(id)
+//        user1 = userRepository.getOne(1L);   // LazyLoading (LazyPatch) 지원
+//        System.out.println(user1);
+
+		// #008 findById(id)
+//        Optional<User> user;
+//        user = userRepository.findById(1L);   // EagerPatch
+//        System.out.println(user);  // Optional
+//        System.out.println();
+//        
+//        user = userRepository.findById(10L);   // 없다면?
+//        System.out.println(user);  // Optional.empty
+//        System.out.println();
+//        
+//        // Optional#orElse() : 찾으면 entity 리턴, 없는 경우 null 리턴하도록 처리. 
+//        user1 = userRepository.findById(10L).orElse(null);
+//        System.out.println(user1);  // null
+//        System.out.println();
+
+		// #009 flush(), saveAndFlush()
+		// flush() 는 SQL쿼리의 변화를 주는게 아니라 DB 반영 시점을 조정한다. 로그 출력으로는 변화를 확인하기 힘들다
+//        userRepository.save(new User("new martin", "newmartin@redknight.com"));
+//        userRepository.flush();
+//        userRepository.findAll().forEach(System.out::println);
+//        
+//        // saveAndFlush() = save() + flush()
+//        userRepository.saveAndFlush(new User("new martin", "newmartin@redknight.com"));
+//        userRepository.findAll().forEach(System.out::println);
+
+		// #010 count()
+//        long count = userRepository.count();
+//        System.out.println(count);
+
+		// #011 existsById()
+//        boolean exists = userRepository.existsById(1L);
+//        System.out.println(exists);
+
+		// #012 delete(entity)
+		// 삭제하기
+//        userRepository.delete(userRepository.findById(1L).orElse(null));
+//        userRepository.findAll().forEach(System.out::println);
+
+		// delete() 는 null 을 허용하지 않기 때문에. 차라리 예외 발생시킬수도 있다.
+//        userRepository.delete(userRepository.findById(10L).orElseThrow(RuntimeException::new));
+//        userRepository.findAll().forEach(System.out::println);
+
+		// #013 deleteById(id)
+//        userRepository.deleteById(1L);
+//        userRepository.findAll().forEach(System.out::println);
+
+		// #014 deleteAll()
+//        userRepository.deleteAll();
+//        userRepository.findAll().forEach(System.out::println);
+
+		// #015 deleteAll(Iterable)
+//        userRepository.deleteAll(userRepository.findAllById(Lists.newArrayList(1L, 3L)));
+//        userRepository.findAll().forEach(System.out::println);
+
+		// #016 deleteInBatch(Iterable)
+//      userRepository.deleteInBatch(userRepository.findAllById(Lists.newArrayList(1L, 3L)));
+//      userRepository.findAll().forEach(System.out::println);
+
+		// #017 deleteAllInBatch()
+//        userRepository.deleteAllInBatch();
+//        userRepository.findAll().forEach(System.out::println);
+
+		// #018 findXXX(Pageable) 페이징
+		// PageRequest 는 Pageable 의 구현체 org.springframework.data.domain.PageRequest
+		// 리턴값은 Page<T> org.springframework.data.domain.Page
+		// 주의: page 값은 0-base 다
+
+//        Page<User> pageUsers = userRepository.findAll(PageRequest.of(1, 3));   // page 1 (두번째 페이지), size 3
+//        
+//        System.out.println("page: " + pageUsers);  // Page 출력
+//        System.out.println("totalElements: " + pageUsers.getTotalElements());  // 전체 데이터 개수  5
+//        System.out.println("totalPages: " + pageUsers.getTotalPages());        // 전체 페이지수  2
+//        System.out.println("numberOfElements: " + pageUsers.getNumberOfElements());  // 현재페이지 데이터 개수 2
+//        System.out.println("sort: " + pageUsers.getSort());
+//        System.out.println("size: " + pageUsers.getSize());  // 페이징 할때 나누는 size 3
+//        
+//        // 페이지 내부의 User 정보
+//        pageUsers.getContent().forEach(System.out::println);
+
+		// #019 QueryByExample 사용
+//        ExampleMatcher matcher = ExampleMatcher.matching()
+//        		//.withIgnorePaths("name")    // name 컬럼은 매칭하지 않겠다.
+//        		.withMatcher("email", endsWith())  // email 컬럼은 뒤 부분 매칭으로 검색
+//        		// import 주의!  import static org.springframework.data.domain.ExampleMatcher.GenericPropertyMatchers.endsWith;
+//        		;
+//        
+//      //Example.of(probe, ExampleMatcher)  <-- 여기서 probe 란 실제 Entity 는 아니란 말입니다.  match 를 위해서 쓰인 객체
+//        Example<User> example = Example.of(new User("ma", "knight.com"), matcher);
+//        
+//        userRepository.findAll(example).forEach(System.out::println);
+
+		// #020 QueryByExample 사용
+		// email 필드에 "blue" 문자열이 있는것 find
+
+//        user1 = new User();
+//        user1.setEmail("blue");
+//        
+//        ExampleMatcher matcher = ExampleMatcher.matching().withMatcher("email", contains());  // email 필드에서 주어진 문자열을 담고 있는 것을 검색 
+//        // import 주의!!  import static org.springframework.data.domain.ExampleMatcher.GenericPropertyMatchers.contains;
+//
+//        Example<User> example = Example.of(user1, matcher);
+//        
+//        userRepository.findAll(example).forEach(System.out::println);
+
+		// #021 UPDATE
+		// save() 가 INSERT 뿐 아니라 UPDATE 도 수행한다
+		user1 = new User("david", "david@redknight.com");
+		System.out.println("save() 전: " + user1); // @Id 값이 Null 인 경우 save()는 INSERT 동작
+
+		userRepository.save(user1);
+		System.out.println("save() 후: " + user1);
+
+		user2 = userRepository.findById(1L).orElse(null); // id=1 데이터 읽어오기
+		user2.setEmail("martin@mail.com"); // mail 필드 값을 수정할거다
+		System.out.println("user2: " + user2); // @Id 값이 있는 경우 save() 는 UPDATE 동작
+		userRepository.save(user2); // UPDATE id=1 인 데이터의 mail 값이 수정된다.
+
+		userRepository.findAll().forEach(System.out::println);
+
+		System.out.println("-------------------------------------------------------");
+	}
+
+	@Test
+	void select() {
+		System.out.println("\n-- TEST#select() ---------------------------------------------");
+
+		// 1.
+//		userRepository.findByName("martin").forEach(System.out::println);
+//		userRepository.findByName("dennis").forEach(System.out::println);
+//		System.out.println(userRepository.findByName("dennis"));
+
+		// 2.
+//		System.out.println("findByEmail : " + userRepository.findByEmail("martin@redknight.com"));
+//		System.out.println("getByEmail : " + userRepository.getByEmail("martin@redknight.com"));
+//		System.out.println("readByEmail : " + userRepository.readByEmail("martin@redknight.com"));
+//		System.out.println("queryByEmail : " + userRepository.queryByEmail("martin@redknight.com"));
+//		System.out.println("searchByEmail : " + userRepository.searchByEmail("martin@redknight.com"));
+//		System.out.println("streamByEmail : " + userRepository.streamByEmail("martin@redknight.com"));
+//		System.out.println("findUserByEmail : " + userRepository.findUserByEmail("martin@redknight.com"));
+
+		// 3.
+//		System.out.println("findSomethingByEmail : " + userRepository.findSomethingByEmail("martin@redknight.com"));
+
+		// 4.
+//		System.out.println("findByByName : " + userRepository.findByByName("martin"));
+
+		// 5.
+//		System.out.println("findTop1ByName : " + userRepository.findTop1ByName("martin"));
+//		System.out.println("findTop2ByName : " + userRepository.findTop2ByName("martin"));
+//		System.out.println("findFirst1ByName : " + userRepository.findFirst1ByName("martin"));
+//		System.out.println("findFirst2ByName : " + userRepository.findFirst2ByName("martin"));
+
+		// 6.
+//		System.out.println("findLast1ByName : " + userRepository.findLast1ByName("martin"));
+
+		// 7.
+//        System.out.println("findByEmailAndName : " + userRepository.findByEmailAndName("martin@redknight.com", "martin"));
+//        System.out.println("findByEmailAndName : " + userRepository.findByEmailAndName("martin@redknight.com", "dennis"));
+//        System.out.println("findByEmailOrName : " + userRepository.findByEmailOrName("martin@redknight.com", "dennis"));
+
+		// 8.
+//        System.out.println("findByCreatedAtAfter : " 
+//        		+ userRepository.findByCreatedAtAfter(LocalDateTime.now().minusDays(1L)));  // 어제 이후의 createdAt 값
+//        System.out.println("findByIdAfter : " + userRepository.findByIdAfter(4L));
+//        System.out.println("findByNameBefore : " + userRepository.findByNameBefore("martin")); 
+
+		// 9.
+//		System.out.println("findByCreatedAtGreaterThan : " + userRepository.findByCreatedAtGreaterThan(LocalDateTime.now().minusDays(1L)));
+//		System.out.println("findByNameGreaterThanEqual : " + userRepository.findByNameGreaterThanEqual("martin"));
+
+		// 10.
+//		System.out.println("findByCreatedAtBetween : " + userRepository
+//				.findByCreatedAtBetween(LocalDateTime.now().minusDays(1L), LocalDateTime.now().plusDays(1L)));
+//		System.out.println("findByIdBetween : " + userRepository.findByIdBetween(1L, 3L));
+//		System.out.println("findByIdGreaterThanEqualAndIdLessThanEqual : "
+//				+ userRepository.findByIdGreaterThanEqualAndIdLessThanEqual(1L, 3L));
+
+		// 11.
+//		System.out.println("findByIdIsNotNull : " + userRepository.findByIdIsNotNull());
+
+//		System.out.println("findByIdIsNotEmpty : " + userRepository.findByIdIsNotEmpty());
+//		System.out.println("findByAddressIsNotEmpty : " + userRepository.findByAddressIsNotEmpty());
+//
+		// 12.
+//		System.out.println("findByNameIn : " + userRepository);
+
+		// 13.
+//		System.out.println("findByNameStartingWith : " + userRepository);
+//		System.out.println("findByNameEndingWith : " + userRepository);
+//		System.out.println("findByEmailContains : " + userRepository);
+
+		// 14.
+//		System.out.println("findByEmailLike : " + userRepository);
+
+		System.out.println("------------------------------------------------------------\n");
+	}
+
+}

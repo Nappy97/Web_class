@@ -2,10 +2,15 @@ package com.lec.spring.repository;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import com.lec.spring.domain.User;
 
@@ -74,6 +79,36 @@ public interface UserRepository extends JpaRepository<User, Long> {
 	// 11 Null, Empty
 	List<User> findByIdIsNotNull();
 //	List<User> findByIdIsNotEmpty();		// Empty -> collection 에서의 not empty 를 체크한다.
-	List<User> findByAddressIsNotEmpty();	// relation 과 관련되어 collection 에서의 not empty 체크 in JPA
+//	List<User> findByAddressIsNotEmpty();	// relation 과 관련되어 collection 에서의 not empty 체크 in JPA
 	
+	// 12. In, NotIn
+	List<User> findByNameIn(List<String> names);
+	
+	// 13. StartingWith, EndingWith, Contains
+	// 문자열에 대한 검색쿼리, LIKE 사용
+	List<User> findByNameStartingWith(String name);
+	List<User> findByNameEndingWith(String name);
+	List<User> findByEmailContains(String email);
+	
+	// 14. Like
+	List<User> findByEmailLike(String email);
+	
+	// 16. OrderBy
+	List<User> findTopByNameOrderByIdDesc(String name);
+	List<User> findFirstByNameOrderByIdDesc(String name);
+	
+	// 17. 정렬기준 추가
+	List<User> findFirstByNameOrderByIdDescEmailDesc(String name);
+	
+	// 18. 매개변수(Sort) 기반 정렬
+	List<User> findFirstByName(String name, Sort sort);
+	
+	// 18-2. 코드 가독성 개선
+	
+	// 19. Paging
+	Page<User> findByName(String name, Pageable pageable);
+	
+	// 20. Enum 테스트
+	@Query(value = "SELECT * FROM user LIMIT 1;", nativeQuery = true)
+	Map<String, Object> findRowRecord();
 }

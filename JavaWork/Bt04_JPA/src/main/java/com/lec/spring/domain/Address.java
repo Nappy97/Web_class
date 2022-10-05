@@ -8,6 +8,5 @@ public class Address {
 	
 	@Id
 	private Long id;
-	
 
 }

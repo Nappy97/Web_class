@@ -1,0 +1,5 @@
+Rpackage com.lec.spring.repository;
+
+public interface Book {
+
+}

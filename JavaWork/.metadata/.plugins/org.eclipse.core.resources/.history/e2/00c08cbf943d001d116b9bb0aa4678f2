@@ -1,5 +1,0 @@
-server.port=8091
-
-# H2 db 콘솔 활성화
-spring.h2.console=true   
-
