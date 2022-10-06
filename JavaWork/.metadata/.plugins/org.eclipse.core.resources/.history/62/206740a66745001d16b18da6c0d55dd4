@@ -1,0 +1,22 @@
+package com.lec.spring.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+// 스프링 시큐리티 설정
+@Configuration		// 스프링 컨테이너에 빈으로 생성
+@EnableWebSecurity	// WebSecurity 를 활성화 해준다.
+					// 아래 스프링 시큐리티 필터가 스프링 필터 체인에 등록이 된다.
+public class SecurityConfig extends WebSecurityConfigurerAdapter{
+	
+	@Bean
+	public PasswordEncoder encoder() {
+		System.out.println("PasswordEncoder bean 생성");
+		return new BCryptPasswordEncoder();
+	}
+
+}

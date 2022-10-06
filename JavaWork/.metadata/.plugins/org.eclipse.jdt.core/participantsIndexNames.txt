@@ -27,6 +27,8 @@ C:\DevRoot\Dropbox\Web\JavaWork\.metadata\.plugins\org.eclipse.jst.jsp.core\jsps
 \Bt03_MVC\src\main\java
 C:\DevRoot\Dropbox\Web\JavaWork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3242899132.index
 \JSP21_Comment\src\main\java
+C:\DevRoot\Dropbox\Web\JavaWork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3358862225.index
+\Bt05_Board\src\main\java
 C:\DevRoot\Dropbox\Web\JavaWork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3704366904.index
 \Nappy_Book_Mvc\src\main\java
 C:\DevRoot\Dropbox\Web\JavaWork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2906740233.index
@@ -55,6 +57,8 @@ C:\DevRoot\Dropbox\Web\JavaWork\.metadata\.plugins\org.eclipse.jst.jsp.core\jsps
 \JSP11_Cookie\src\main\java
 C:\DevRoot\Dropbox\Web\JavaWork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2197388821.index
 \JSP19_Pagination\src\main\java
+C:\DevRoot\Dropbox\Web\JavaWork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\738388503.index
+\Bt05_Board\src\main\java
 C:\DevRoot\Dropbox\Web\JavaWork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1948181545.index
 \JSP21_Comment\src\main\java
 C:\DevRoot\Dropbox\Web\JavaWork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\597021655.index
