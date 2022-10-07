@@ -25,85 +25,99 @@ import com.lec.spring.service.UserService;
 // => Authentication 객체를 꺼내고, 그 안에서
 //      => UserDetails 정보를 꺼내면 된다.
 
-//이건 @ 안해도 되나? ==> 나중에 강제로 띄우게 될겁니다. new 를 통해서!
 
-public class PrincipalDetails implements UserDetails {
+//이건 @ 안해도 되나? ==> 나중에 강제로 띄우게 될겁니다. new 를 통해서!
+public class PrincipalDetails implements UserDetails{
 
 	private UserService userService;
-
+	
 	public void setUserService(UserService userService) {
 		this.userService = userService;
 	}
-
-	private User user;
 	
-	public User getUser() {
+	private User user;
+	public User getUser() {   // 로그인한 사용자의 정보 (Entity) 추출
 		return user;
 	}
-
+	
 	public PrincipalDetails(User user) {
 		System.out.println("UserDetails(user) 생성: " + user);
 		this.user = user;
 	}
-
+	
 	// 해당 User 의 '권한(들)'을 리턴
 	// 현재 로그인한 사용자의 권한정보가 필요할때마다 호출된다. 혹은 필요할때마다 직접 호출해 사용할수도 있다
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		System.out.println("getAuthorities() 호출");
-
+		
 		Collection<GrantedAuthority> collect = new ArrayList<>();
-
-		List<Authority> list = userService.selectAuthoritiesById(user.getId());
-
-		for (Authority auth : list) {
+		
+		List<Authority> list = userService.selectAuthoritiesById(user.getId()); // TODO
+		
+		for(Authority auth: list) {
 			collect.add(new GrantedAuthority() {
-
+				
 				@Override
-				public String getAuthority() {
+				public String getAuthority() {					
 					return auth.getName();
 				}
-
+				
 				// view 에서 활용할 문자열
 				@Override
-				public String toString() {
+				public String toString() {					
 					return auth.getName();
 				}
 			});
 		}
-
+		
 		return collect;
 	}
 
+	// 로그인 한 사용자의 password 는?
 	@Override
-	public String getPassword() {
+	public String getPassword() {	
 		return user.getPassword();
 	}
 
+	// 로그인 한 사용자의 username 은?
 	@Override
-	public String getUsername() {
+	public String getUsername() {		
 		return user.getUsername();
 	}
 
+	// 계정이 만료된건 아닌지?
 	@Override
 	public boolean isAccountNonExpired() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
+	// 계정이 잠긴건 아닌지
 	@Override
 	public boolean isAccountNonLocked() {
 		return true;
 	}
 
+	// 계정 credential  이 만료된건 아닌지?
 	@Override
 	public boolean isCredentialsNonExpired() {
 		return true;
 	}
 
+	// 활성화 되었나?
 	@Override
 	public boolean isEnabled() {
 		return true;
 	}
 
 }
+
+
+
+
+
+
+
+
+
+

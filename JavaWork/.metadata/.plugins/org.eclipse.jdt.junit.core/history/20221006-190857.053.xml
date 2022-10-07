@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="WriteRepositoryTest" project="Bt05_Board" tests="1" started="1" failures="0" errors="0" ignored="0">
-  <testsuite name="com.lec.spring.repository.WriteRepositoryTest" time="0.436" displayname="WriteRepositoryTest" uniqueid="[engine:junit-jupiter]/[class:com.lec.spring.repository.WriteRepositoryTest]">
-    <testcase name="init" classname="com.lec.spring.repository.WriteRepositoryTest" time="0.436" displayname="init()" uniqueid="[engine:junit-jupiter]/[class:com.lec.spring.repository.WriteRepositoryTest]/[method:init()]"/>
-  </testsuite>
-</testrun>

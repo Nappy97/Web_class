@@ -16,29 +16,47 @@ import com.lec.spring.service.UserService;
 //loadUserByUsername() 가 실행되고
 //인증성공하면 결과를 UserDetails 로 리턴
 
-@Service // 컨테이너에 등록
-public class PrincipalDetailService implements UserDetailsService {
+@Service  // 컨테이너에 등록
+public class PrincipalDetailService implements UserDetailsService{
 
 	@Autowired
 	private UserService userService;
-
+	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-
+		
 		System.out.println("loadUserByUsername(" + username + ")");
-
-		User user = userService.findByUsername(username); // DB 조회
-
+		
+		User user = userService.findByUsername(username);  // DB조회
+		
 		// 해당 username 의 User 가 DB 에 있다면
 		// UserDetails 를 생성하여 리턴
-		if (user != null) {
+		if(user != null) {
 			PrincipalDetails userDetails = new PrincipalDetails(user);
 			userDetails.setUserService(userService);
 			return userDetails;
 		}
 		
+        // 해당 username 의 user 가 없다면!
+        // UsernameNotFoundException을 throw 해주도록 한다
 		throw new UsernameNotFoundException(username);
-		//		return null;
+		
+		// 여기서 null 리턴하면 예외 발생
+//		return null;
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

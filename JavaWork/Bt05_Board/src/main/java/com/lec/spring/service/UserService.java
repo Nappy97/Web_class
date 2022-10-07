@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.lec.spring.domain.Authority;
@@ -27,6 +28,9 @@ public class UserService {
 		this.authorityRepository = authorityRepository;
 	}
 
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+	
 	public UserService() {
 		System.out.println(getClass().getName() + "() 생성");
 	}
@@ -39,11 +43,35 @@ public class UserService {
 	public List<Authority> selectAuthoritiesById(Long id) {
 
 		User user = userRepository.findById(id).orElse(null);
-		
+
 		if (user != null) {
 			return user.getAuthorities();
 		}
 
 		return new ArrayList<>();
 	}
+
+	// 주어진 username 의 회원이 존재하는지 확인 (회원가입등에서 활용)
+	public boolean isExist(String username) {
+		User user = userRepository.findByUsername(username);
+
+		if (user != null)
+			return true;
+
+		return false;
+	}
+	
+	// 회원등록
+	public int register(User user) {
+		user.setUsername(user.getUsername().toUpperCase());		// 대문자로 저장
+		user.setPassword(passwordEncoder.encode(user.getPassword()));	// 암호화
+		user = userRepository.save(user);
+		
+		// 신규 회원은 ROLE_MEMBER 권한 기본적으로 부여하기
+		Authority auth = authorityRepository.findByName("ROLE_MEMBER");
+		user.addAuthority(auth);
+		userRepository.save(user);
+		return 0;
+	}
+
 }
