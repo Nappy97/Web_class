@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.Transient;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -38,6 +39,11 @@ public class User extends BaseEntity{
 	private String password;  // 회원 비밀번호
 	@Column(nullable = false)
 	private String name;      // 회원 이름
+	
+	@Transient  // javax.persistence : DB에는 반영안하는 필드
+	@ToString.Exclude
+	private String re_password;  // 바인딩 하기위한 필드
+	
 	
 	@ManyToMany(fetch = FetchType.EAGER)
 	@ToString.Exclude
