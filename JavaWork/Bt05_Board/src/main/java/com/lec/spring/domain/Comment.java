@@ -14,6 +14,8 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -32,6 +34,7 @@ public class Comment extends BaseEntity{
 	private User user;   // 댓글 작성자(FK)
 	
 	@Column(name = "write_id")
+	@JsonIgnore
 	private Long write;   // 게시글 (FK)
 	
 	@Column(nullable = false)
