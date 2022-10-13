@@ -5858,3 +5858,9 @@ java.nio.file.FileSystemException: C:\DevRoot\Dropbox\Web\JavaWork\Bt05_Board\ta
 !MESSAGE Could not delete: C:\DevRoot\Dropbox\Web\JavaWork\Bt05_Board\target\classes\com\lec.
 !SUBENTRY 5 org.eclipse.core.filesystem 4 273 2022-10-12 23:39:10.336
 !MESSAGE Could not delete: C:\DevRoot\Dropbox\Web\JavaWork\Bt05_Board\target\classes\com.
+
+!ENTRY org.eclipse.ui 2 2 2022-10-12 23:43:40.356
+!MESSAGE Invalid property category path: org.springframework.ide.eclipse.beans.ui.properties.ProjectPropertyPage (bundle: org.springframework.ide.eclipse.xml.namespaces, propertyPage: org.springframework.ide.eclipse.beans.ui.namespaces.projectPropertyPage)
+
+!ENTRY org.eclipse.core.resources 2 10035 2022-10-13 01:12:02.461
+!MESSAGE The workspace will exit with unsaved changes in this session.
