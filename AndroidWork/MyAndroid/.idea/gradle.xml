@@ -11,6 +11,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/a002_layout2" />
+            <option value="$PROJECT_DIR$/a003_listener" />
             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>

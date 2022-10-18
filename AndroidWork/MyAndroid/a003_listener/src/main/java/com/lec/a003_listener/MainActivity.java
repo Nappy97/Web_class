@@ -1,4 +1,4 @@
-package com.lec.a002_layout2;
+package com.lec.a003_listener;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.linear_gravity);
+        setContentView(R.layout.activity_main);
     }
 }
