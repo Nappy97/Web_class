@@ -14,5 +14,7 @@ dependencyResolutionManagement {
 }
 rootProject.name = "MyAndroid"
 include ':app'
-include ':a002_layout2'
-include ':a003_listener'
+include ':app:a002_layout2'
+include ':app:a003_listener'
+include ':app:a004_widget'
+include ':app:a005_image'

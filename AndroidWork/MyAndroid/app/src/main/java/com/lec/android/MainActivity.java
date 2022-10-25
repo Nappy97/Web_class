@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
 
     // setContentView() 는 이 액티비티의 화면(content view)를
     // 무엇으로 채울지 지정합니다.
-    // 예제에서는 기본적으로 리소스(R) 의 activity_main2.xml 레이아웃 파일을
+    // 예제에서는 기본적으로 리소스(R) 의 activity_main.xml 레이아웃 파일을
     // 액티비티의 content view 로 세팅합니다
 
     TextView tvTitle;
@@ -28,3 +28,16 @@ public class MainActivity extends AppCompatActivity {
         ((Button)v).setText("클릭했습니다");
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
