@@ -15,6 +15,11 @@
             <option value="$PROJECT_DIR$/app/a003_listener" />
             <option value="$PROJECT_DIR$/app/a004_widget" />
             <option value="$PROJECT_DIR$/app/a005_image" />
+            <option value="$PROJECT_DIR$/app/a006_widget2" />
+            <option value="$PROJECT_DIR$/app/a007_activity" />
+            <option value="$PROJECT_DIR$/app/a008_recycler" />
+            <option value="$PROJECT_DIR$/app/a009_sound" />
+            <option value="$PROJECT_DIR$/app/a010_storage" />
           </set>
         </option>
       </GradleProjectSettings>

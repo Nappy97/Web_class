@@ -219,7 +219,7 @@ public class BoardService {
 			if(imgData != null) fileDto.setImage(true); // 이미지 여부 체크
 		} // end for
 	}
-	
+A	zx
 	
 	
 	
